@@ -1,0 +1,246 @@
+/* stylesheet done watching/following this youtube video https://www.youtube.com/watch?v=t-EMinSz_Tk */
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.back {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.8;
+}
+/* everything is inside container except the background image */
+.container1 {
+    background-color: rgb(224, 224, 224, 0.9);
+    border: 10px, solid, #979797;
+    border-radius: 1%;
+}
+
+/* svg image */
+.img-set-logo {
+    width: 78%;
+    margin-top: 24%;
+    margin-left: 15%;
+}
+
+.logo {
+    width: 55%;
+    margin-left: 27% !important;
+}
+
+/*overflow: visible;*/
+
+.set-between {
+    align-items: center;
+}
+
+/* forgot your password */
+.forgotpass {
+    padding-right: 140px;
+}
+.btn-link-pass {
+    color: #999 !important;
+}
+.btn-link:hover {
+    color: black !important;
+    text-decoration: none;
+}
+
+/* the employee management in the left corner of the page */
+.custom-set-brand {
+    color: rgba(0, 0, 0, 0.8) !important;
+    font-size: 1.2rem !important;
+}
+
+.btn-register {
+    width: 100% !important;
+    margin-left: 0% !important;
+    height: 63% !important;
+}
+
+/* sign in */
+.btn-reset {
+    font-size: 1.1rem !important;
+    text-transform: none !important;
+}
+
+/* styling the 2 inputs - email and password */
+.input-div {
+    position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #70706e;
+}
+
+/* interactivity for the input  */
+.input-div:after,
+.input-div:before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #2b3669;
+    transition: 0.3s;
+}
+
+.input-div:after {
+    right: 50%;
+}
+
+.input-div:before {
+    left: 50%;
+}
+
+.input-div.focus:before,
+.input-div.focus:after {
+    width: 50%;
+}
+
+/* makes icon blue */
+.input-div.focus .i i {
+    color: #2b3669;
+}
+
+/* moves username and password to the top and make them smaller */
+.input-div.focus div h5 {
+    top: -5px;
+    font-size: 15px;
+}
+/* username */
+.input-div.one {
+    margin-top: 0;
+}
+/* password */
+.input-div.two {
+    margin-bottom: 10px;
+}
+
+/* i is the icons  */
+i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.i i {
+    color: #333;
+    transition: 0.3s;
+}
+
+.input-div > div {
+    position: relative;
+    height: 45px;
+}
+
+/* changing the username and password, placeholder of the inputs */
+.input-div > div h5 {
+    position: absolute;
+    left: 10px;
+    top: 30%;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 18px;
+    transition: 0.3s;
+}
+/* changing size input box and the text when user starts typing */
+.input,
+.input:focus {
+    border: none !important;
+    outline: none !important;
+    background: none !important;
+
+    /* faz com que o texto que a pessoa entre nao comece tao grudado no icone */
+    /*padding: 0.5em 0.7rem;*/
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+    color: #555;
+}
+
+a {
+    /* makes them be in separate lines, one on top of the other instead of beside */
+    display: block;
+    /* move to the right of the container */
+    text-align: right;
+    /* deletes the line underneath the link */
+    text-decoration: none;
+    color: #999;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+/* changes the color when hovering over */
+a:hover {
+    /*color: #232e57;*/
+}
+
+/* styling the login button */
+.btn {
+    /* move to the left */
+    display: block;
+    /* make it as large as the container */
+    width: 50%;
+    height: 40%;
+    /* deixa as bordas arredondadas */
+    border-radius: 25px;
+    margin: 0.7rem 0;
+    margin-left: 35%;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #232e57, #2b3669, #232e57);
+    /* muda o cursor, ao inves da seta uma maozinha */
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    background-size: 200%;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    background-position: right;
+    color: white;
+}
+
+@media screen and (max-width: 1050px) {
+    .container {
+        grid-gap: 5rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    form {
+        width: 290px;
+    }
+
+    .login-container h2 {
+        font-size: 2.4rem;
+        margin: 8px 0;
+    }
+
+    .svg img {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .svg {
+        display: none;
+    }
+
+    .login-container {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,2 @@
+this project particular task is to managment employees of company, project tracking and also keepting the record of company clients. 
+this project built in advance framwork larvel and use MVC(model view controller) tecnique.

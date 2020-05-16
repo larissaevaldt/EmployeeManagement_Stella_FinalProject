@@ -1,0 +1,49 @@
+.menu {
+    position: absolute;
+    width: 370px;
+    height: auto;
+    top: 0px;
+    right: 0px;
+    background-color: #232e57;
+    color: #fff;
+    z-index: 1;
+    display: none;
+}
+
+.menu ul li {
+    list-style-type: none;
+    text-align: center;
+    font-size: 24px;
+    line-height: 2;
+    padding: 10px 0px 0px;
+}
+
+ul a {
+    color: white !important;
+    text-decoration: none;
+}
+
+ul a:hover {
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.client > span:hover {
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.clientList {
+     display: none;
+}
+
+.employee > span:hover {
+    cursor: pointer;
+    font-size: 15px;
+}
+.employeeList {
+     display: none;
+}
+.border-top-bottom {
+    border-top: 1px solid #979797;
+}
