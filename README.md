@@ -1,2 +1,2 @@
-this project particular task is to managment employees of company, project tracking and also keepting the record of company clients. 
-this project built in advance framwork larvel and use MVC(model view controller) tecnique.
+This project's particular task is to manage employees of company, add/view/update/delete, project tracking and also keep the record of company clients. 
+This project was built in the Laravel Framework and uses MVC(model view controller) technique.
