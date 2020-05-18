@@ -135,8 +135,8 @@
             </div> --}}
 
 
-        @if(isset($project)) 
-        <div class="container focusSet">
+    @if(isset($project)) 
+    <div class="container focusSet">
         <div class="area px-1 py-5 w-100">
             <div class="row pt-1 mb-4">
                 <div class="col-sm-10 px-0 pl-5">
@@ -175,6 +175,35 @@
                     @endforeach
                 </div>
             </div>
+        </div>
+        <div>
+            <?php $var = '' ?>
+            @foreach($employees ?? '' as $employee)
+                <?php $var .= $employee->phone_number .= "," ?>
+            @endforeach
+            <?php $var = rtrim($var,','); ?>
+            <h1 class=" pb-2 text-center">We have automatically added all numbers from the list, you can delete if you want or add any others</h1>
+            <h5 class=" pb-2 text-center">Just make sure to add numbers in the same format and separate numbers with comma, no space</h5>
+            
+            <form action="{{ route('send.message') }}" method="POST">
+                @if($errors->any())
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li> {{ $error }} </li>
+                        @endforeach
+                @endif
+
+            <div class="form-group row my-3">
+                @csrf
+                    <input name="numbers" type="text" class="form-control input-back-color px-3 mt-1  form-control-lg" id="phone-numbers" placeholder="" value="{{$var}}">
+                </div>
+                <textarea class="form-control px-3 mt-1 form-control-lg" placeholder="Enter here the message to send for the employees" name='message'></textarea>
+                <div class="col-sm-6 pl-0 mr-5">
+                    <input id="send-message" type="submit" name="search_project" value="Send Message">
+                </div>
+            </div>
+        </form>
+            
         </div>
     </div>
     @endif

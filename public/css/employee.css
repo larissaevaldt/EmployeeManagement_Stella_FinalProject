@@ -271,3 +271,24 @@ input[type="checkbox"][readonly] {
 a {
     outline: none;
 }
+
+#send-message {
+    /* move to the left */
+    display: block;
+    width: 80%;
+    height: 50px;
+    border-radius: 25px;
+    margin-left: 60%;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #232e57, #2b3669, #232e57);
+    /* muda o cursor, ao inves da seta uma maozinha */
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    background-size: 200%;
+    transition: 0.5s;
+}

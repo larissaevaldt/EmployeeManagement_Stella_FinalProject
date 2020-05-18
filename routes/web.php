@@ -72,6 +72,7 @@ Route::get('/project/single/finish/{id}','ProjectController@singleFinsh')->name(
 Route::get('/project/allfinished','ProjectController@allFinished')->name('project.allFinsh');
 Route::POST('/project/data/{id}','ProjectController@finalize')->name('project.final');
 
+Route::post('/bulksms', 'BulkSmsController@sendSms')->name('send.message');
 //creates automatically all the default routes, except the ones we specify it not to create
 //default routes are index, create, store, edit, update, show, destroy
 Route::resource('employee','EmployeeController');
