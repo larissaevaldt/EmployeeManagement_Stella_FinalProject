@@ -97,43 +97,6 @@
             </div>
             @endif
             </center>
-        
-            {{-- <div> 
-                <form class="px-4 py-4" method="post" action="{{route('message.store')}}">                 
-                    <div class="form-group row">
-                        <label for="colFormLabelLg" class="col-sm-4 font col-form-label col-form-label-lg text-center pl-4 pb-0 filter">Add filters</label>
-                    @csrf    
-                    </div>
-                    @if(isset($project))   
-                        <input type="hidden" name="project_id" value="{{$project->id}}">
-                    @endif
-                    <div class="form-group row">
-                        <label for="colFormLabelLg" class="col-sm-4 font col-form-label col-form-label-lg text-center pl-4">Not banned from Company(ID)</label>
-                        <div class="col-sm-8 pl-0">
-                            <input name="banned" type="text" class="form-control input-back-color form-control-lg" id="colFormLabelLg" placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabelLg" class="col-sm-4 font col-form-label col-form-label-lg text-center pl-4">Accept the job role of</label>
-                        <div class="col-sm-8 pl-0">
-                            <input name="not_job" type="text" class="form-control input-back-color form-control-lg" id="colFormLabelLg" placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="colFormLabelLg" class="col-sm-4 font col-form-label col-form-label-lg text-center pl-4">Min pay rate <= if stamp 2 visa status</label>
-                        <div class="col-sm-8 pl-0">
-                            <input name="pay_rat" type="text" class="form-control input-back-color form-control-lg" id="colFormLabelLg" placeholder="">
-                        </div>
-                    </div>
-                    <div class="form-group row mt-4 ml-3">
-                        <label for="colFormLabelLg" class="col-sm-4 font col-form-label col-form-label-lg"></label>
-                        <div class="col-sm-4 pl-0">
-                            <input type="submit" class="pr-4 submit font ml-3 input-back-color form-control form-control-lg" id="colFormLabelLg" value="Generate list of candidate">
-                        </div>
-                    </div>
-                </form>
-            </div> --}}
-
 
     @if(isset($project)) 
     <div class="container focusSet">
@@ -177,14 +140,18 @@
             </div>
         </div>
         <div>
+            {{-- create a variable to store the numbers --}}
             <?php $var = '' ?>
+            {{-- //for each employee returned from the controller, add to the variable with a comma --}}
             @foreach($employees ?? '' as $employee)
                 <?php $var .= $employee->phone_number .= "," ?>
             @endforeach
+            {{-- remove the last comma --}}
             <?php $var = rtrim($var,','); ?>
+
             <h1 class=" pb-2 text-center">We have automatically added all numbers from the list, you can delete if you want or add any others</h1>
             <h5 class=" pb-2 text-center">Just make sure to add numbers in the same format and separate numbers with comma, no space</h5>
-            
+            {{-- form for the user to type the message and send, it submits to the BulkSmsController@sendSMS --}}
             <form action="{{ route('send.message') }}" method="POST">
                 @if($errors->any())
                     <ul>
@@ -195,15 +162,15 @@
 
             <div class="form-group row my-3">
                 @csrf
-                    <input name="numbers" type="text" class="form-control input-back-color px-3 mt-1  form-control-lg" id="phone-numbers" placeholder="" value="{{$var}}">
+                {{-- pass the variable to the value of the input, so the phone number will automatically be put in the input box, bur the staff member can edit this, delete some numbers if they want or add other ones     --}}
+                <input name="numbers" type="text" class="form-control input-back-color px-3 mt-1  form-control-lg" id="phone-numbers" placeholder="" value="{{$var}}">
                 </div>
                 <textarea class="form-control px-3 mt-1 form-control-lg" placeholder="Enter here the message to send for the employees" name='message'></textarea>
                 <div class="col-sm-6 pl-0 mr-5">
                     <input id="send-message" type="submit" name="search_project" value="Send Message">
                 </div>
             </div>
-        </form>
-            
+        </form>    
         </div>
     </div>
     @endif

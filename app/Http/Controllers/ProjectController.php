@@ -105,14 +105,16 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource
+     * Fetches the database to find a project with a given id and passes it to the view
+     * redirects to a template located at resources/views/project/project_information
      * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $project = Project::find($id);
-        return view('project.ongoing_detail',compact('project'));
+        return view('project.project_information',compact('project'));
     }
 
     /**
@@ -167,13 +169,17 @@ class ProjectController extends Controller
         //
     }
 
+    public function showDenied($id) {
+        return view('project.accepted');
+    }
+
     /**
      * View single resorce.
      *
      * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function finsh($id)
+    public function finish($id)
     { 
         $project = Project::find($id); 
         return view('project.finish',compact('project'));
@@ -184,14 +190,14 @@ class ProjectController extends Controller
      * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function singleFinsh($id)
+    public function singleFinish($id)
     { 
         $project = Project::find($id); 
-        return view('project.detail_finsh',compact('project'));
+        return view('project.detail_finish',compact('project'));
     }
     
 
-      /**
+    /**
      * View all resorce on specefic condition
      *
      * @param  \App\Project  $project
@@ -222,7 +228,7 @@ class ProjectController extends Controller
             $projectProblem->prob_message = $request->project_problem;
             $project->projectProblem()->save($projectProblem);
         }
-        Session::flash('success','Project Markeed as Finsh');
+        Session::flash('success','Project Marked as Finsh');
             return redirect()->route('project.allFinsh');
     }
 

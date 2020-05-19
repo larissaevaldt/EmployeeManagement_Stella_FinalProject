@@ -14,6 +14,7 @@ class CompanyController extends Controller
     /*
     *validate register user
     *authenticate register use
+    **go through the Auth middleware to ensure that these pages can be viewed only by users who have logged into the system
     */
     public function __construct(){
       
@@ -23,6 +24,7 @@ class CompanyController extends Controller
     
     /**
      * Display a listing of all the clients.
+     * redirects the view template located in resources/views/client/index
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -34,6 +36,7 @@ class CompanyController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * redirects view template in resources/client/add
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -43,14 +46,16 @@ class CompanyController extends Controller
 
     /**
      * Store a newly created resource in the database
+     * The form in the add template will submit to this function
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        //create a new Company and Company Address
         $company = new Company();
         $companyAddress = new Company_address();
-
+        //validate the data the user entered in the form
         $validateData = $request->validate([
             'name'               => 'required|min:5',
             'phonNo'             => 'required',
@@ -62,6 +67,8 @@ class CompanyController extends Controller
             'addressTwo'         => 'required',
             'city'               => 'required'   
         ]);
+        
+        //assign the data entered by the user in the respective columns in the database
         $company->contact_fname = $request->fname;
         $company->contact_lname = $request->lname;
         $company->phone_number = $request->phonNo;
@@ -75,11 +82,12 @@ class CompanyController extends Controller
         $companyAddress->town_city = $request->city;
         $companyAddress->country = $request->country;
 
-      
+        //save the variable holding the user inputs into the database
         $company->save();
         $company->companyAddress()->save($companyAddress);
+        //Displays a message if everything went right
         Session::flash('success','Client Record Save successfully');
-        // return redirect()->back();
+        // redirects to the list of all clients
         return redirect('/client');
     }
 
@@ -97,7 +105,6 @@ class CompanyController extends Controller
     public function edit($id)
     {
         $client = Company::findOrFail($id);
-        // $employee = Employee::find($id);
         return view('client.edit',compact('client'));
     }
 
@@ -109,7 +116,10 @@ class CompanyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
+    {  
+        //very similar to the store method, but instead of creating a new Company
+        //it looks for one with the id given, make alterations and save
+        //This is Eloquent sintax for similar SELECT * FROM Company WHERE id = $id
         $company = Company::find($id);
         $companyAddress = Company_address::where('company_address_id', $id)->first();
 
@@ -146,6 +156,8 @@ class CompanyController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * looks for a company in the database with the given id and deletes it
+     * redirects back to the list of clients
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
@@ -155,11 +167,6 @@ class CompanyController extends Controller
         $client->delete();
         
         return redirect('/client')->with('completed', 'Client Deleted Successfully');
-
-        // $client = Company::findOrfail($id);
-        // $client->delete();
-        // Session::flash('success', 'Client Deleted Successfully');
-        // return redirect()->back();
     }
 
 

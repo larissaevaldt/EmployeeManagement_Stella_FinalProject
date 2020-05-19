@@ -1,9 +1,10 @@
 $(document).ready(function () {
     $("#dateSearch").click(function () {
         if ($("#gnib").val() == "" || $("#manual").val() == "") {
-            alert("Please Fill The both field");
+            alert("Please fill both of the fields");
             console.log($(".search_record").val());
         } else {
+            //
             $.ajax({
                 url: "/employee/searchActive",
                 method: "GET",
@@ -46,6 +47,7 @@ $(document).ready(function () {
             });
         }
     });
+
     $(".searchList").on("click", function () {
         if ($("#gnib").val() == "" || $("#manual").val() == "") {
             alert("Please Generate List From Above First!");

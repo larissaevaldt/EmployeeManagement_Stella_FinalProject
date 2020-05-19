@@ -27,71 +27,65 @@
 	            <div class="mt-5 ml-4 mb-5">
 	               <div class="ml-3 mb-1">
 	                    <label class="h1 heading-text-color">Project ID: </label>
-	                    <label class="h1 heading-text-color">{{$project->id}}</label>
+	                    <label class="h1 heading-text-color">&nbsp{{$project->id}}</label>
 	                </div>
 	                <div class="ml-3 mb-1">
 	                    <label class="h1 heading-text-color">Company Name: </label>
-	                    <label class="h1 heading-text-color">{{$project->company->name}}</label>
-	                </div>
-	                <div class="ml-3 mb-1">
-	                    <label class="h1 heading-text-color">Order Received at: </label>
-	                    <label class="h1 heading-text-color">
-	                    	{{$project->date}}
-	                    </label>
+	                    <label class="h1 heading-text-color">&nbsp{{$project->company->name}}</label>
 	                </div>
 	                <div class="ml-3 mb-1">
 	                    <label class="h1 heading-text-color">Order Entered on System at: </label>
 	                    <label class="h1 heading-text-color">
-	                    	{{
+	                    	&nbsp{{
 	                    	 date ('M j, Y h:ia', strtotime($project->created_at )) }}                    	
 	                    </label>
 	                </div>
 	                <div class="ml-3 mb-1">
 	                    <label class="h1 heading-text-color">Order Entered on System by: </label>
 	                    <label class="h1 heading-text-color">
-	                    	{{$project->entered_by}}
+	                    	&nbsp{{$project->entered_by}}
 	                    </label>
 	                </div>
 	                <div class="ml-3 mb-1">
 	                    <label class="h1 heading-text-color">Job Role: </label>
 	                    <label class="h1 heading-text-color">
-	                    	{{$project->job_role}}
+	                    	&nbsp{{$project->job_role}}
 	                    </label>
 	                </div>
 	                <div class="ml-3 mb-1">
 	                    <label class="h1 heading-text-color">Job Description: </label>
 	                    <label class="h1 heading-text-color">
-	                    	{{$project->project_description}}
+	                    	&nbsp{{$project->project_description}}
 	                    </label>
 	                </div>
 	                <div class="ml-3 mb-1">
 	                    <label class="h1 heading-text-color">No of Staff: </label>
 	                    <label class="h1 heading-text-color">
-	                    	{{$project->number_of_staff}}
+	                    	&nbsp{{$project->number_of_staff}}
 	                    </label>
 	                </div>
 	                <div class="ml-3 mb-1">
 	                    <label class="h1">Rate of Pay: </label>
 	                    <label class="h1">
-	                    	{{$project->rate_of_pay}}
+	                    	&nbsp{{$project->rate_of_pay}}
 	                    </label>
 	                </div>
 	                <div class="ml-3 mb-1">
 	                    <label class="h1 heading-text-color">Date: </label>
 	                    <label class="h1 heading-text-color">
-	                    	{{$project->date}}
+	                    	&nbsp{{$project->date}}
 	                    </label>
 	                </div>
 	                <div class="ml-3 mb-1">
 	                    <label class="h1 heading-text-color">Working Hours: </label>
 	                    <label class="h1 heading-text-color">
-	                    	{{$project->start_time}}&nbsp{{$project->end_time}}
+	                    	&nbsp{{$project->start_time}}&nbsp{{$project->end_time}}
 	                    </label>
 	                </div>
 	                <div class="ml-3 mb-1">
 	                    <label class="h1 heading-text-color">Location: </label>
 	                    <label class="h1 heading-text-color">
-	                    	{{$project->location}}
+	                    	&nbsp{{$project->location}}
 	                    </label>
 	                </div>
 	                <div class="ml-3 mb-1">
@@ -108,19 +102,19 @@
 	                </div>
 	                <div class="ml-3 mb-1">
 	                    <label class="h1 heading-text-color">Project Status: </label>
-	                    <label class="h1 heading-text-color">{{$project->status}}</label>
+	                    <label class="h1 heading-text-color">&nbsp{{$project->status}}</label>
 	                </div>
 	            </div>
 	            <div class="row mt-3 mb-5">
 	                <div class="col-sm-4 pl-5">
-	                    <a href="">
+	                    <a href="{{ url('/project/accepted') }}">
 	                        <button type="submit" class="form-control form-control-lg submit p-4 m-auto h-100">
 	                            See who accepted
 	                        </button>
 	                    </a>
 	                </div>
 	                <div class="col-sm-4">
-	                    <a href="{{ url('/denied') }}">
+	                    <a href="{{ url('/project/denied') }}">
 	                        <button type="submit" class="form-control form-control-lg submit p-4 m-auto h-100">
 	                            See who
 	                            <br>denied
