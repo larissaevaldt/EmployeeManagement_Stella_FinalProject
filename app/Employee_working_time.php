@@ -8,7 +8,7 @@ class Employee_working_time extends Model
 {
     /**
     *
-    *Relatoinship
+    *Relationship
     *
     * make relation between Employee and Working_hour 
     **/

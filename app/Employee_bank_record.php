@@ -8,8 +8,7 @@ class Employee_bank_record extends Model
 {
     /**
     *
-    *Relatoinship
-    *
+    *Relationship
     * make relation between Employee and Employee_record 
     **/
     public function employeeBankRecord(){

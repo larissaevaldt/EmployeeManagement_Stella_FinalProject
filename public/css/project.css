@@ -184,3 +184,8 @@ a:hover {
     padding: 0;
     height: 88px;
 }
+
+.Piechart {
+    display: flex;
+    flex-wrap: wrap;
+}

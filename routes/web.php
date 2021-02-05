@@ -84,3 +84,4 @@ Route::resource('employee','EmployeeController');
 Route::resource('project','ProjectController')->except(['destroy']);
 Route::resource('client','CompanyController');
 Route::resource('message','MessageController')->except(['destroy']);
+

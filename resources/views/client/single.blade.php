@@ -20,12 +20,7 @@
                             @csrf
                             @method('DELETE')
                                 <button class="submit font input-back-color form-control-lg w-100 close-btn" type="submit">Delete</button>
-                        </form>
-                        {{-- <div class="col-3">
-                            <a href="{{ route('employee.index')}}">
-                                <input type="submit" class="submit font input-back-color form-control-lg w-50 close-btn" id="colFormLabelLg" value="Delete" name="delete">
-                            </a>
-                        </div> --}}
+                        </form>                     
                         <div class="col-4">
                         <a href="/client/{{$client->id}}/edit">
                                 <input type="submit" class="submit font input-back-color form-control-lg w-50 close-btn" id="colFormLabelLg" value="Update" name="update">

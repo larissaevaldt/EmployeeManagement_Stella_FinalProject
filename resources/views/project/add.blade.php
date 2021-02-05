@@ -25,8 +25,8 @@
 	                    <label for="colFormLabelLg" class="col-sm-4 font col-form-label col-form-label-lg">Company</label>
 	                    <div class="col-sm-8 pl-0">
 	                    	<select required class="form-control form-control-lg input-back-color" id="company-name-id" name="company_id">
-																							@foreach($companies as $company)
-																						<option value="{{$company->id}}">{{$company->name}}</option>
+								@foreach($companies as $company)
+									<option value="{{$company->id}}">{{$company->name}}</option>
 	                    		@endforeach
 	                    	</select>
 	                    </div>
@@ -67,7 +67,7 @@
 	                    </div>
 	                </div> 
 																	
-																	<div id="working-hour-div">
+					<div id="working-hour-div">
 	                	<fieldset>
 		                	<div class="form-group row">
 	                            <div class="col-sm-8 offset-sm-4 pl-0" id="weekly-hour-error"data-parsley-errors-container="#weekly-error">
@@ -100,7 +100,7 @@
 	                        <label for="colFormLabelLg" class="mr-5 font col-form-label col-form-label-lg float-right">Add another job role</label>
 	                    </div>
 																	</div> -->
-																	<div class="form-group row">
+						<div class="form-group row">
 	                    <label for="colFormLabelLg" class="col-sm-4 font col-form-label col-form-label-lg">Entered By</label>
 	                    <div class="col-sm-8 pl-0">
 	                        <input type="text" class="form-control form-control-lg input-back-color" id="job-role" name="entered_by" placeholder="" value="{{Auth::user()->name}}&nbsp;{{Auth::user()->sur_name}}" readonly="readonly" required>
