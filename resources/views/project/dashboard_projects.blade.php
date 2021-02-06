@@ -7,7 +7,7 @@
 @endsection
 
 @section('body')
-@include('partials._nav_search') 
+@include('partials._nav') 
 	<div class="container">
 	    <div class="py-4 w-100">
 	        <div class="pt-1 mt-3 text-center heading-text-color">

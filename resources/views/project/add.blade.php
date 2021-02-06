@@ -10,7 +10,7 @@
 {{-- add the body of the add projects page --}}
 @section('body')
 {{-- including the navbar --}}
-@include('partials._nav_search') 
+@include('partials._nav') 
 {{-- this prints a message if project was added or not --}}
 @include('partials._messages')
 	
