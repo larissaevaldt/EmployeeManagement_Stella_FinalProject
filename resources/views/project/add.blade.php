@@ -2,7 +2,7 @@
 @extends('main')
 
 {{-- change the title and add the css specially made for this page --}}
-@section('title', 'Add a new project')
+@section('title', 'Add new project')
 @section('styleAdd')
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/project.css')}}">
 @endsection
@@ -15,6 +15,7 @@
 @include('partials._messages')
 	
 <div class="container focusSet">
+
 	    <div class="area px-5 py-5 w-100">
 	        <h1 class="mx-4 pl-3 pb-2 heading-text-color">Add a new project</h1>
 	        <div class="form-area ml-3 px-4">

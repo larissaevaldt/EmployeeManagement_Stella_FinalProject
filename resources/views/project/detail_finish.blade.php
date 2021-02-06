@@ -6,7 +6,7 @@
 
 @endsection
 @section('body')
-@include('partials._nav_search') 
+@include('partials._nav') 
 	<div class="container">
 	    <div class="py-4 w-100">
 	        <div class="row pt-1 mb-4 mt-3">

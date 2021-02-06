@@ -2,7 +2,7 @@
 @include('partials._menu')
 <div class="container-fluid p-0">
     <div class="container-fluid  my-nav">
-        <div class="row">
+        <div class="nav-wrapper">
             <div class="col-3 col-md-3 logo-div focusSet">
                 <a href="/project">
                     <img src="{{ asset('/images/PRONTO_LOGO.png')}}" class="logo">

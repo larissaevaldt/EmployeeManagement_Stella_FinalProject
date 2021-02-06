@@ -17,7 +17,13 @@ body {
     padding-left: 30px;
 }
 
-.row {
+/* .row {
+    width: 100vw;
+    flex-wrap: unset;
+    display: flex;
+} */
+
+.nav-wrapper {
     width: 100vw;
     flex-wrap: unset;
     display: flex;
@@ -160,7 +166,12 @@ a:hover {
     border-radius: 25px;
     background-color: #e6e6e6;
     border-bottom: 2px solid #bfbdbd;
-    font-size: 34px;
+    font-size: 30px;
+}
+
+.submit:hover {
+    background-color: #232e57;
+    color: #fff;
 }
 
 .job-role-text {
@@ -211,4 +222,8 @@ a:hover {
 .Piechart {
     display: flex;
     flex-wrap: wrap;
+}
+
+.project-details p {
+    margin: 5px;
 }

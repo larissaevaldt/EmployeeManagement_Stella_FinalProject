@@ -10,35 +10,38 @@
 @include('partials._nav') 
 	<div class="container">
 	    <div class="py-4 w-100">
-	        <div class="pt-1 mt-3 text-center heading-text-color">
-	            <label class="h1 ml-5">Welcome back,&nbsp</label>
-				<label class="h1">{{ Auth::user()->name}}</label>
-	            <label class="h1">!</label>
+	        <div class="pt-1 mt-1 text-center heading-text-color">
+	            <label class="h2 ml-5">Welcome back,&nbsp{{ Auth::user()->name}}!</label>
 	        </div>
-	        {{-- <div class="mt-1 text-center">
-	            <label class="h1 ml-5 pb-2 heading-text-color">Check our on-going projects at the moment</label>
-	        </div> --}}
 	        <div class="mt-1 text-center">
-	            <label class="h3 ml-5 pb-2 text-color">Click on the event to get more information</label>
+	            <label class="h4 ml-5 heading-text-color">Check our on-going projects at the moment</label>
+	        </div>
+	        <div class="mt-1 text-center">
+	            <label class="h6 ml-5 pb-2 text-color">Click on the project ID to get more information</label>
 	        </div>
 
+            
             <div class="Piechart">
                 @foreach($projects as $project)
                 {{-- PUT THE PIE CHART HERE!!!! --}}
-                <div class="col-xl-6 mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="chart-container">
-                                <p>Company: {{  $project->company->name}}</p> 
-                                <div class="chart has-fixed-height" id="pie_basic_{{$project->id}}" >
+                    <div class="col-xl-6 mt-3">
+                        <a href="{{route('project.show',$project->id)}}">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <p><strong>Company:</strong> {{  $project->company->name}}</p> 
+                                    <div class="chart has-fixed-height" id="pie_basic_{{$project->id}}" >
+                                    </div>
+                                    <div class="project-details">
+                                        <p>Number of Messages sent: {{  $project->sent }}</p>
+                                        <p>Accepted: {{  $project->found }}</p>
+                                        <p>Denied: {{  $project->denied }}</p>
+                                    </div>
                                 </div>
-                                <p>Number of Messages sent: {{  $project->sent }}</p>
-                                <p>Accepted: {{  $project->found }}</p>
-                                <p>Denied: {{  $project->denied }}</p>
                             </div>
                         </div>
-                    </div>
-                </div>	
+                        </a>
+                    </div>	
 	         @endforeach
             </div>
 	    </div>
@@ -90,7 +93,7 @@
                     tooltip: {
                         trigger: 'item',
                         backgroundColor: 'rgba(0,0,0,0.75)',
-                        padding: [10, 15],
+                        padding: [5, 5],
                         textStyle: {
                             fontSize: 13,
                             fontFamily: 'Roboto, sans-serif'
